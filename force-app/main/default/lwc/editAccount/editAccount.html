@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Editar Conta">
+
+        <div class="slds-p-horizontal_small">
+
+            <lightning-record-edit-form
+                object-api-name='Account'
+                record-id={recordId}
+                onsuccess={handleSuccess}
+                onerror={handleError}>
+                <lightning-input-field field-name='Name'></lightning-input-field>
+                <lightning-button 
+                    variant="brand" 
+                    onclick={getCep} 
+                    type="button" 
+                    label="Buscar CEP">
+                </lightning-button>
+                <lightning-input-field 
+                    field-name="BillingPostalCode"
+                    onchange={handleChange}>
+                </lightning-input-field>
+                <lightning-input-field 
+                    data-name="logradouro"
+                    field-name="BillingStreet"
+                    value={data.logradouro}>
+                </lightning-input-field>
+                <lightning-input-field 
+                    data-name="localidade"
+                    field-name="BillingCity"
+                    value={data.localidade}>
+                </lightning-input-field>
+                <lightning-input-field 
+                    data-name="uf"
+                    field-name="BillingState"
+                    value={data.uf}>
+                </lightning-input-field>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button variant="brand" type="submit" label="Save">
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+            
+        </div>
+    </lightning-card>
+
+</template>
